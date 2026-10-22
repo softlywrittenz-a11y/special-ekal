@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special for Ekal 🧸💖🌈</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Soft Warm Pastel Background */
+            background: linear-gradient(135deg, #fef6e4 0%, #f3d5b5 50%, #e7c6ff 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #4a4e69;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Background Icons (Teddy Bear, Love, Rainbow) */
+        .sky-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 22px;
+            pointer-events: none;
+            animation: floatIcon 8s linear infinite;
+            opacity: 0.75;
+        }
+
+        @keyframes floatIcon {
+            0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.9; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Glassmorphism Soft Card */
+        .container {
+            width: 100%;
+            max-width: 390px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 28px;
+            padding: 28px 22px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            border: 1.5px solid rgba(255, 255, 255, 0.9);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #fde2e4;
+            color: #ffb5a7;
+            border: 1px solid #fcd5ce;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            color: #d62828;
+        }
+
+        h1 {
+            font-size: 21px;
+            font-weight: 800;
+            color: #2b2d42;
+            margin-bottom: 6px;
+        }
+
+        p.subtitle {
+            font-size: 12.5px;
+            color: #6c757d;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Question Box */
+        .question-card {
+            background-color: #ffffff;
+            border: 1.5px dashed #fcd5ce;
+            border-radius: 20px;
+            padding: 20px 16px;
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .question-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #3d5a80;
+            line-height: 1.5;
+        }
+
+        /* Multiple Choice Options */
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .option-btn {
+            background: #f8f9fa;
+            border: 1.5px solid #e9ecef;
+            color: #495057;
+            padding: 12px 14px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-btn:hover, .option-btn.selected {
+            background: #fde2e4;
+            border-color: #fb6f92;
+            color: #b7094c;
+            font-weight: 600;
+        }
+
+        /* Textarea Essay */
+        textarea {
+            width: 100%;
+            height: 105px;
+            border: 1.5px solid #e9ecef;
+            border-radius: 16px;
+            padding: 12px;
+            font-size: 13px;
+            font-family: inherit;
+            resize: none;
+            outline: none;
+            transition: border-color 0.2s;
+            margin-top: 12px;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        textarea::placeholder {
+            color: #adb5bd;
+        }
+
+        textarea:focus {
+            border-color: #fb6f92;
+            background-color: #ffffff;
+        }
+
+        /* Main Buttons */
+        .btn-send {
+            width: 100%;
+            background-color: #2b2d42;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        .btn-send:active {
+            transform: scale(0.98);
+        }
+
+        .btn-send:hover {
+            background-color: #3d5a80;
+        }
+
+        /* Confess Screen */
+        .success-card {
+            display: none;
+            text-align: center;
+        }
+
+        .confess-box {
+            background: #ffffff;
+            border: 1.5px solid #ffc6ff;
+            border-radius: 20px;
+            padding: 22px 18px;
+            margin: 18px 0 20px 0;
+            text-align: center;
+            color: #4a4e69;
+            font-size: 13px;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+        }
+
+        .confess-title {
+            font-weight: 800;
+            font-size: 18px;
+            color: #ff006e;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .proposal-btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #ff85a1 0%, #ff0b55 100%);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 16px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(255, 11, 85, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn-yes:active {
+            transform: scale(0.96);
+        }
+
+        .ss-reminder {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 16px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Latar Belakang Melayang (Teddy Bear, Love, Rainbow) -->
+    <div class="sky-container" id="skyContainer"></div>
+
+    <!-- Container Utama -->
+    <div class="container" id="mainCard">
+        <span class="badge" id="stepBadge">STEP 1 DARI 5 🧸💖</span>
+        <h1>Special for Ekal</h1>
+        <p class="subtitle">Ada 5 pertanyaan singkat khusus buat kamu. Jawab sejujurnya yaa ✨</p>
+
+        <div class="question-card">
+            <div class="question-title" id="qTitle">Loading pertanyaan...</div>
+            
+            <!-- Tempat Pilihan Ganda -->
+            <div class="options-grid" id="optionsContainer"></div>
+
+            <!-- Tempat Input Essay -->
+            <textarea id="essayInput" placeholder="Tulis jawaban kamu di sini..." style="display: none;"></textarea>
+        </div>
+
+        <button class="btn-send" id="btnNext" onclick="handleNext()">Lanjut ➔</button>
+    </div>
+
+    <!-- Layar Akhir: Confess "Will You Be My Girlfriend?" -->
+    <div class="container success-card" id="successCard">
+        <div style="font-size: 48px; margin-bottom: 8px;">🧸💖🌈</div>
+        <h1>Thank You, Ekal!</h1>
+        <p class="subtitle">Makasih udah mau jawab semua pertanyaannya 🤍</p>
+
+        <div class="confess-box">
+            <span class="confess-title">Will You Be My Girlfriend? 💍✨</span>
+            <p id="confessText">
+                Dari semua obrolan dan momen yang udah kita lewati, aku makin yakin kalau kamu itu orang yang sangat spesial buat aku. Aku pengen terus ada buat kamu, jalan bareng kamu, dan bikin lebih banyak cerita manis berdua. 
+            </p>
+            
+            <div class="proposal-btn-group">
+                <button class="btn-yes" onclick="answerYes()">YES, I WILL! 💖✨</button>
+            </div>
+        </div>
+
+        <p class="ss-reminder" id="ssText">Jangan lupa SS halaman ini & kirim ke aku yaa! 📸</p>
+    </div>
+
+    <script>
+        // 5 Pertanyaan Spesial Confess buat Ekal
+        const questions = [
+            { 
+                type: "pg", 
+                title: "1. Pas awal kenal & ngobrol sama aku, hal apa yang paling pertama bikin kamu nyaman?", 
+                options: [
+                    "A. Cara ngobrolnya asik & nyambung", 
+                    "B. Perhatian ke hal-hal kecil", 
+                    "C. Selalu bikin ketawa / terhibur", 
+                    "D. Nggak tau kenapa, nyaman aja wkwk"
+                ] 
+            },
+            { 
+                type: "pg", 
+                title: "2. Momen atau obrolan mana yang paling berkesan buat kamu sejauh ini?", 
+                options: [
+                    "A. Deep talk malam-malam", 
+                    "B. Pas saling bercanda & tengil", 
+                    "C. Pas kamu nemenin/dengerin aku cerita", 
+                    "D. Semua momen bareng kamu berkesan!"
+                ] 
+            },
+            { 
+                type: "pg", 
+                title: "3. Menurut kamu, kita itu kalau lagi bareng vibes-nya kayak gimana sih?", 
+                options: [
+                    "A. Lucu, banyak bercandanya", 
+                    "B. Warm & cozy, kayak rumah", 
+                    "C. Random tapi selalu seru", 
+                    "D. Pas banget dan saling ngelengkapin"
+                ] 
+            },
+            { 
+                type: "essay", 
+                title: "4. Apa sih alasan utama Ekal nyaman atau mau terus jalan bareng aku?" 
+            },
+            { 
+                type: "essay", 
+                title: "5. Apa harapan atau impian kecil kamu buat hubungan kita ke depannya?" 
+            }
+        ];
+
+        let currentStep = 0;
+        let selectedOption = "";
+
+        function loadQuestion() {
+            const q = questions[currentStep];
+            document.getElementById('stepBadge').innerText = `STEP ${currentStep + 1} DARI 5 🧸💖`;
+            document.getElementById('qTitle').innerText = q.title;
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            const essayInput = document.getElementById('essayInput');
+
+            optionsContainer.innerHTML = "";
+            selectedOption = "";
+
+            if (q.type === "pg") {
+                optionsContainer.style.display = "flex";
+                essayInput.style.display = "none";
+
+                q.options.forEach(opt => {
+                    const btn = document.createElement('div');
+                    btn.classList.add('option-btn');
+                    btn.innerText = opt;
+                    btn.onclick = () => {
+                        document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                        btn.classList.add('selected');
+                        selectedOption = opt;
+                    };
+                    optionsContainer.appendChild(btn);
+                });
+            } else {
+                optionsContainer.style.display = "none";
+                essayInput.style.display = "block";
+                essayInput.value = "";
+            }
+
+            if (currentStep === questions.length - 1) {
+                document.getElementById('btnNext').innerText = "Lihat Pesan Terakhir 💖";
+            } else {
+                document.getElementById('btnNext').innerText = "Lanjut ➔";
+            }
+        }
+
+        function handleNext() {
+            const q = questions[currentStep];
+
+            if (q.type === "pg") {
+                if (!selectedOption) {
+                    alert("Pilih salah satu jawabannya dulu yaa Ekal!");
+                    return;
+                }
+            } else {
+                const essayVal = document.getElementById('essayInput').value.trim();
+                if (essayVal === "") {
+                    alert("Isi jawaban kamu dulu yaa Ekal!");
+                    return;
+                }
+            }
+
+            if (currentStep < questions.length - 1) {
+                currentStep++;
+                loadQuestion();
+            } else {
+                document.getElementById('mainCard').style.display = "none";
+                document.getElementById('successCard').style.display = "block";
+            }
+        }
+
+        function answerYes() {
+            alert("YAAAY! I Love You So Much, Ekal! 💖✨");
+            document.getElementById('confessText').innerHTML = "<b>OFFICIALLY MINE! 💍✨</b><br>Makasih udah mau jadi pacar aku. I'll do my best to make you happy every single day! ❤️";
+            document.getElementById('ssText').innerText = "📸 LANGSUNG SCREENSHOT BAGIAN INI TERUS KIRIM KE AKU YAA! 💖";
+        }
+
+        // Generate Boneka, Love & Pelangi Melayang
+        const skyContainer = document.getElementById('skyContainer');
+        const icons = ['🧸', '💖', '🌈', '✨', '🤍', '🌸'];
+        
+        for (let i = 0; i < 22; i++) {
+            const el = document.createElement('div');
+            el.classList.add('floating-icon');
+            el.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = (Math.random() * 5 + 6) + 's';
+            el.style.animationDelay = Math.random() * 5 + 's';
+            skyContainer.appendChild(el);
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
